@@ -3,7 +3,6 @@ describe('Login', () => {
     cy.start()
     cy.submitLoginForm('papito@webdojo.com', 'katana123')
 
-
     cy.get('[data-cy="user-name"]')
       .should('be.visible')
       .and('have.text', 'Fernando Papito')
