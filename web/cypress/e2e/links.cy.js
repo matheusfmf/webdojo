@@ -10,7 +10,7 @@ describe('Links abrindo nova guia/janela', () => {
 
     });
 
-    it.only('Acessa link de termons de uso removendo o target blank', () => {
+    it('Acessa link de termons de uso removendo o target blank', () => {
         cy.start()
         cy.submitLoginForm('papito@webdojo.com', 'katana123')
 
@@ -25,5 +25,4 @@ describe('Links abrindo nova guia/janela', () => {
 
     });
 })
-
 
