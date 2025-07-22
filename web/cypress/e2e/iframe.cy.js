@@ -1,8 +1,6 @@
 describe('Tocar o video', () => {
-
     it('Deve poder tocar o video de exemplo', () => {
-        cy.start()
-        cy.submitLoginForm('papito@webdojo.com', 'katana123')
+        cy.login()  
         cy.contains('Video').click()
 
         cy.get('iframe[title="Video Player"]')
