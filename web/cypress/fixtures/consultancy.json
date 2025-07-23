@@ -1,0 +1,45 @@
+{
+  "personal": {
+    "name": "Matheus Freitas",
+    "email": "matheus@teste.com",
+    "phone": "(61) 99944-5353",
+    "consultancyType": "Individual",
+    "personType": "cpf",
+    "document": "07066588596",
+    "discoveryChannels": [
+      "Instagram",
+      "LinkedIn",
+      "Udemy",
+      "YouTube",
+      "Indicação de Amigo"
+    ],
+    "file": "./cypress/fixtures/document.pdf",
+    "description": "Lorem Ipsum is simply dummy",
+    "techs": [
+      "Cypress",
+      "Selenium",
+      "Playwright",
+      "WebDriverIO",
+      "Robot Framework"
+    ],
+    "terms": true
+  },
+  "company": {
+    "name": "Matheus Freitas",
+    "email": "matheus@teste.com",
+    "phone": "(61) 99944-5353",
+    "consultancyType": "In Company",
+    "personType": "cnpj",
+    "document": "60470269000163",
+    "discoveryChannels": [
+      "Instagram",
+      "LinkedIn"
+    ],
+    "file": "./cypress/fixtures/document.pdf",
+    "description": "Lorem Ipsum is simply dummy",
+    "techs": [
+      "Cypress"
+    ],
+    "terms": true
+  }
+}
