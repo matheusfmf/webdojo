@@ -1,4 +1,5 @@
 import 'cypress-real-events';
+import './actions/consultancy.actions';
 
 Cypress.Commands.add('start', () => {
     cy.viewport(1440, 900)
@@ -28,7 +29,3 @@ Cypress.Commands.add('login', ()  => {
     cy.submitLoginForm('papito@webdojo.com', 'katana123')
 })
 
-Cypress.Commands.add('fillconsultancyForm', () => {
-    
-    
-})
