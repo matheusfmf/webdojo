@@ -26,7 +26,7 @@ describe('Gerenciamento de Perfis no GitHub', () => {
 
     });
 
-    it.only('Deve poder remover um perfil do gitHub', () => {
+    it('Deve poder remover um perfil do gitHub', () => {
 
         const profile = {
             name: 'Matheus Freitas',
@@ -48,5 +48,28 @@ describe('Gerenciamento de Perfis no GitHub', () => {
 
         cy.contains('table tbody tr', profile.username)
             .should('not.exist');
+    });
+
+    it.only('Deve validar o link do gitHub', () => {
+
+        const profile = {
+            name: 'Matheus Freitas',
+            username: 'matheusfmf',
+            desc: 'QA'
+        }
+        cy.get('#name').type(profile.name);
+        cy.get('#username').type(profile.username);
+        cy.get('#profile').type(profile.desc);
+
+        cy.contains('button', 'Adicionar Perfil').click();
+
+        cy.contains('table tbody tr', profile.username)
+            .should('be.visible')
+            .as('trProfile');
+
+        cy.get('@trProfile').find('a')
+            .should('have.attr', 'href', 'https://github.com/' + profile.username)
+            .and('have.attr', 'target', '_blank')
+
     });
 });
