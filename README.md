@@ -112,6 +112,7 @@ pnpm test:login:mobile
 npx cypress open
 # ou
 yarn cypress open
+# ou
 pnpm cypress open
 ```
 #### 🧪 Rodar todos os testes no modo interativo (modo visual/open)
