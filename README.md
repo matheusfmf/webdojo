@@ -1,39 +1,165 @@
-# 🥋 WebDojo
 
-![WebDojo Cover](.github/cover.png)
+# 📘 Documentação de Testes Automatizados – Webdojo (Cypress)
 
-## 🚀 Sobre o Projeto
+Este repositório contém os testes automatizados desenvolvidos com [Cypress](https://www.cypress.io/) para a aplicação **Webdojo**.
 
-O **WebDojo** é um aplicativo exclusivo para os alunos do **Curso Ninja do Cypress**, ministrado pelo mestre **Fernando Papito**! 🥷💻 Ele foi criado para ser um **campo de treinamento prático**, onde os alunos podem aprimorar suas habilidades em automação de testes com desafios e exercícios focados no **Cypress**.
+---
 
-🛠️ Tecnologias Utilizadas
+## 📁 Estrutura do Projeto
 
-- [x] Git & GitHub 🌍 (Controle de versão e repositório remoto)
-- [x] Bash (Linha de Comando) 💻 (Execução de scripts e comandos)
-- [x] Visual Studio Code 🖥️ (Editor de código recomendado)
-- [x] Node.js (22+) 🟢 (Runtime JavaScript)
-- [x] Gerenciador de pacotes (npm ou yarn) 📦 (Dependências do projeto)
-- [x] Cypress 🧪 (Framework de testes end-to-end)
-- [x] Docker & Docker Compose 🐳 (Ambiente isolado para execução)
-- [x] PostgreSQL 🗄 (Banco de dados relacional)
-- [x] Use Bruno 🔌 (Cliente de API para testes de requisições)
+A estrutura de pastas segue o padrão recomendado pelo Cypress:
 
-## 📖 Como Usar
+```
+web/
+├── cypress/
+│   ├── e2e/                # Casos de teste automatizados
+│   │   ├── alerts.cy.js
+│   │   ├── cep.cy.js
+│   │   ├── consultancy.cy.js
+│   │   └── ...
+│   ├── fixtures/           # Arquivos JSON e documentos utilizados nos testes
+│   │   ├── cep.json
+│   │   ├── consultancy.json
+│   │   └── document.pdf
+│   └── support/            # Utilitários, comandos e ações customizadas
+│       ├── actions/
+│       │   └── consultancy.actions.js
+│       ├── commands.js
+│       ├── e2e.js
+│       └── utils.js
+├── cypress.config.js       # Configuração principal do Cypress
+├── dist/                   # Build da aplicação Webdojo
+├── package.json
+├── yarn.lock / pnpm-lock.yaml
+└── ...
+```
 
-As instruções detalhadas de instalação e uso do **WebDojo** estão disponíveis dentro do **Curso Ninja do Cypress**.
+---
 
-🔗 **Acesse o curso e seja Ninja da Automação em Cypress!** 👉 [ninjadocypress.com.br](https://ninjadocypress.com.br)
+## 🚀 Como executar os testes
 
-## ⚠️ Contribuição
+### 1. Instale as dependências do projeto
 
-O **WebDojo** é um ambiente **exclusivo** para os alunos do **Curso Ninja do Cypress**, e por isso, **não aceita contribuições externas**.
+Você pode usar **Yarn**, **npm** ou **pnpm**:
 
-📢 Para suporte e dúvidas, utilize os canais oficiais do curso!
+```bash
+# Yarn
+yarn install
 
-## 🔒 Licença
+# npm
+npm install
 
-Este projeto é **exclusivo para alunos** do **Curso Ninja do Cypress**. 🚫 O compartilhamento ou distribuição sem autorização é proibido.
+# pnpm
+pnpm install
+```
 
-------
+---
 
-💙 Feito com dedicação e muito café por **Fernando Papito** e a equipe do **Curso Ninja do Cypress**. 🚀🔥
+### 2. Execute a aplicação Webdojo navegando até a pasta web
+
+A aplicação Webdojo está no mesmo repositório. Para iniciá-la localmente:
+
+```bash
+# Yarn
+yarn dev
+
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+```
+
+A aplicação será servida em: [http://localhost:3000]
+
+---
+
+### 3. Execute os testes com Cypress
+
+#### ✅ Rodar todos os testes (modo headless)
+
+```bash
+yarn test
+# ou
+npm run test
+# ou
+pnpm test
+```
+
+#### 🔑 Testar apenas o login (modo headless)
+
+```bash
+yarn test:login
+# ou
+npm run test:login
+# ou
+pnpm test:login
+```
+
+#### 📱 Testar login no viewport mobile (iPhone XR)
+
+```bash
+yarn test:login:mobile
+# ou
+npm run test:login:mobile
+# ou
+pnpm test:login:mobile
+```
+
+#### 🧪 Rodar testes no modo interativo (modo visual/open)
+
+```bash
+npx cypress open
+# ou
+yarn cypress open
+pnpm cypress open
+```
+#### 🧪 Rodar todos os testes no modo interativo (modo visual/open)
+
+```bash
+npx cypress run --headed 
+# ou
+yarn cypress run --headed
+# ou
+pnpm cypress run --headed
+```
+#### 🧪 Rodar todos os testes no modo interativo escolhendo navegador (modo visual/open)
+
+```bash
+npx cypress run --headed --browser navegador
+# ou
+yarn cypress run --headed --browser navegador
+# ou
+pnpm cypress run --headed --browser navegador
+```
+
+## 🔧 Comandos Customizados
+
+- `cypress/support/commands.js`: comandos reutilizáveis para interações com a aplicação
+- `cypress/support/actions/`: lógicas específicas por funcionalidade (ex: `consultancy.actions.js`)
+- `utils.js`: funções auxiliares gerais para os testes
+
+---
+
+## 📎 Fixtures
+
+Localizadas em `cypress/fixtures/`, contêm dados e arquivos estáticos usados nos testes:
+
+- `cep.json`: dados de CEP
+- `consultancy.json`: dados de consultorias
+- `document.pdf`: arquivo para testes de upload
+
+---
+
+## 💡 Observações
+
+- Os testes são configurados para rodar com `viewportWidth: 1440` e `viewportHeight: 900` por padrão.
+- Use o viewport mobile de `414x896` para simulação de dispositivos móveis (iPhone XR).
+
+---
+
+## 🧑‍💻 Requisitos
+
+- Node.js 16+
+- Cypress 12+
+- Navegador Chrome, Edge, Firefox ou Electron instalado para testes visuais
